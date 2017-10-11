@@ -2,9 +2,14 @@
 {% block content %}
     {% for post in posts %}
         <div class="news col-md-8">
-            <p>published: {{ post.published_date }}</p>
-            <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
+            published: {{ post.published_date }}
+            <h1>{{ post.title }}</h1>
             <p>{{ post.text|linebreaksbr }}</p>
+            <div class="row">
+                <div class="col-md-4 colmd-offset-6">
+                    <a href="{% url 'post_detail' pk=post.pk %}" class="read-more">Read more</a>
+                </div>
+            </div>
         </div>
     {% endfor %}
 {% endblock %}
