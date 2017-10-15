@@ -11,13 +11,13 @@
         <div class="container-fluid">
             <nav class="navbar navbar-light bg-light justify-content-between">
                 <a class="navbar-brand" href="/">IT-blog</a>
-
+                {% if user.is_authenticated %}
                     <form class="form-inline">
                         <a href="{% url 'post_new' %}" class="btn btn-outline-success my-2 my-sm-0">
                             <i class="fa fa-plus"></i> Add new Post
                         </a>
                     </form>
-
+                {% endif %}
             </nav>
                 
         </div>
