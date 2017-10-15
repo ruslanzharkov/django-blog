@@ -14,7 +14,10 @@
                 {% if user.is_authenticated %}
                     <form class="form-inline">
                         <a href="{% url 'post_new' %}" class="btn btn-outline-success my-2 my-sm-0">
-                            <i class="fa fa-plus"></i> Add new Post
+                            <i class="fa fa-plus"></i> New
+                        </a>
+                        <a href="{% url 'post_draft_list' %}" class="btn btn-outline-warning my-2 my-sm-0">
+                            <i class="fa fa-pencil" aria-hidden="true"></i> Drafts
                         </a>
                     </form>
                 {% endif %}

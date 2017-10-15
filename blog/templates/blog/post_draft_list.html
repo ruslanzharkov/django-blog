@@ -1,10 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <title>$Title$</title>
-</head>
-<body>
-$END$
-</body>
-</html>
+{% extends 'blog/base.html' %}
+
+{% block content %}
+    {% for post in posts %}
+        <div class="news col-md-8">
+            <p class="date">created: {{ post.created_date|date:'d-m-Y' }}</p>
+            <h1>{{ post.title }}</h1>
+            <p>{{ post.text|truncatechars:200 }}</p>
+            <div class="row">
+                <div class="col-md-4 colmd-offset-6">
+                    <a href="{% url 'post_detail' pk=post.pk %}" class="btn btn-info">Read more</a>
+                </div>
+            </div>
+        </div>
+    {% endfor %}
+{% endblock %}
