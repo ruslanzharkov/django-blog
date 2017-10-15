@@ -9,17 +9,15 @@
     </head>
     <body>
         <div class="container-fluid">
-            <nav class="navbar navbar-expand-lg navbar-dark  fixed-top bg-primary">
-                    <a class="navbar-brand" href="/">IT-blog</a>
-                    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-                        <span class="navbar-toggler-icon"></span>
-                    </button>
-                    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-                        <div class="navbar-nav">
-                        <a class="nav-item nav-link active" href="/">Home <span class="sr-only">(current)</span></a>
-                        <a href="{% url 'post_new' %}" class="nav-item nav-link"><i class="fa fa-plus"></i> Add new Post</a>
-                        </div>
-                    </div>
+            <nav class="navbar navbar-light bg-light justify-content-between">
+                <a class="navbar-brand" href="/">IT-blog</a>
+
+                    <form class="form-inline">
+                        <a href="{% url 'post_new' %}" class="btn btn-outline-success my-2 my-sm-0">
+                            <i class="fa fa-plus"></i> Add new Post
+                        </a>
+                    </form>
+
             </nav>
                 
         </div>
