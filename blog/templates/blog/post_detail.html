@@ -26,12 +26,26 @@
     <div class="container">
         <div class="row">
             <a class="btn btn-success" href="{% url 'add_comment_to_post' pk=post.pk %}">Add comment</a>
+        </div>
+        <div class="row">
             {% for comment in post.comments.all %}
-            <div class="news col-md-8">
-                <div class="date"> {{ comment.created_date }}</div>
-                <strong>{{ comment.author }}</strong>
-                <p>{{ comment.text|linebreaks }}</p>
-            </div>
+                {% if user.is_authenticated or comment.approved_comment %}
+                <div class="news col-md-8">
+                    <div class="date">
+                        {{ comment.created_date }}
+                        {% if not comment.approved_comment %}
+                        <a class="btn btn-success" href="{% url 'comment_approve' pk=comment.pk %}">
+                            <i class="fa fa-check" aria-hidden="true"></i>
+                        </a>
+                        <a class="btn btn-danger" href="{% url 'comment_delete' pk=comment.pk %}">
+                            <i class="fa fa-times" aria-hidden="true"></i>
+                        </a>
+                        {% endif %}
+                    </div>
+                    <strong>{{ comment.author }}</strong>
+                    <p>{{ comment.text|linebreaks }}</p>
+                </div>
+                {% endif %}
             {% empty %}
                 <p class="news col-md-8 p-yellow">No comments here yet :(</p>
             {% endfor %}
