@@ -4,6 +4,7 @@ from .models import Post
 from django.shortcuts import render, get_object_or_404
 from .forms import PostForm
 from django.shortcuts import redirect
+from django.contrib.auth.decorators import login_required
 
 
 # This method get all posts
@@ -18,6 +19,7 @@ def post_detail(request, pk):
     return render(request, 'blog/post_detail.html', {'post': post})
 
 
+@login_required
 # This method add new post
 def post_new(request):
     if request.method == "POST":
@@ -32,6 +34,7 @@ def post_new(request):
     return render(request, 'blog/post_edit.html', {'form': form})
 
 
+@login_required
 # This method for edit posts
 def post_edit(request, pk):
     post = get_object_or_404(Post, pk=pk)
@@ -47,12 +50,14 @@ def post_edit(request, pk):
     return render(request, 'blog/post_edit.html', {'form': form})
 
 
+@login_required
 # This method get all draft posts
 def post_draft_list(request):
     posts = Post.objects.filter(published_date__isnull=True).order_by('created_date')
     return render(request, 'blog/post_draft_list.html', {'posts': posts})
 
 
+@login_required
 # This method publish draft post
 def post_publish(request, pk):
     post = get_object_or_404(Post, pk=pk)
@@ -60,6 +65,7 @@ def post_publish(request, pk):
     return redirect('post_detail', pk=pk)
 
 
+@login_required
 # This method delete post
 def post_delete(request, pk):
     post = get_object_or_404(Post, pk=pk)

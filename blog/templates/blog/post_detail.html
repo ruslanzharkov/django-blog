@@ -14,7 +14,7 @@
             <a class="btn btn-success" href="{% url 'post_edit' pk=post.pk %}">
                 <i class="fa fa-pencil" aria-hidden="true"></i> Edit
             </a>
-            <a class="btn btn-danger" href="{% url 'post_remove' pk=post.pk %}">
+            <a class="btn btn-danger" href="{% url 'post_delete' pk=post.pk %}">
                 <i class="fa fa-times" aria-hidden="true"></i> Delete
             </a>
         {% endif %}
