@@ -7,7 +7,7 @@ If you created new post, this post will be published in drafts.
 
 ## Installation
 
-    1. Clone repo
+    1. git clone https://github.com/ruslanzharkov/django-blog.git
     2. python3 -m venv myvenv
     3. source myvenv/bin/activate
     4. pip install Django==1.11.5
