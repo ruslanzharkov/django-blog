@@ -5,6 +5,10 @@ If you created new post, this post will be published in drafts.
 
 ![screenshot from 2017-10-22 16-10-25](https://user-images.githubusercontent.com/28437795/31860904-2253bce8-b744-11e7-9e60-7426320770a0.png)
 
+## Requiments
+    * python 3.5
+    * django 1.11.5
+
 ## Installation
 
     1. git clone https://github.com/ruslanzharkov/django-blog.git
