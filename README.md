@@ -13,7 +13,7 @@ If you created new post, this post will be published in drafts.
 
     1. git clone https://github.com/ruslanzharkov/django-blog.git
     2. python3 -m venv myvenv
-    3. source myvenv/bin/activate
+    3. workon myvenv
     4. pip install Django==1.11.5
     5. python manage.py createsuperuser 
     6. python manage.py makemigrations blog
